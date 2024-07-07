@@ -22,7 +22,7 @@ map("n", "<leader>n", "<cmd>tabnew<CR>", {desc = "new buffer"})
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", {desc = "telescope find files"})
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", {desc = "telescope live grep"})
 map("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", {desc = "telescope recent files"})
-map("n", "<leader>ft", "<cmd>Telescope colorscheme<CR>", {desc = "telecope themes"})
+map("n", "<leader>ft", "<cmd>Telescope colorscheme enable_preview=true<CR>", {desc = "telecope themes"})
 
 -- formating
 map("n", "<leader>lf", vim.lsp.buf.format, {desc = "format file"})
