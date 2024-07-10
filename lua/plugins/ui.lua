@@ -2,16 +2,15 @@
 -- This is where all my UI plug-ins are captured.
 return {
 	-- the colorscheme should be available when starting Neovim
+  -- pywal, toggled via telescope (if pywal is installed)
 	{
-		"rose-pine/neovim",
-    name = "rose-pine",
+    "AlphaTechnolog/pywal.nvim", as = "pywal",
 		lazy = false,
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			-- load the colorscheme here
-			vim.cmd([[colorscheme rose-pine]])
-		end,
-	},
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme "pywal"
+    end
+		},
 	-- handles simple file explorer
 	{
 		"nvim-tree/nvim-tree.lua",
