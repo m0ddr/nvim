@@ -4,11 +4,11 @@ return {
 	-- the colorscheme should be available when starting Neovim
   -- pywal, toggled via telescope (if pywal is installed)
 	{
-    "AlphaTechnolog/pywal.nvim", as = "pywal",
+    "folke/tokyonight.nvim",
 		lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "pywal"
+      vim.cmd.colorscheme "tokyonight"
     end
 		},
 	-- handles simple file explorer
