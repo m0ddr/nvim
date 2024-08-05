@@ -4,11 +4,11 @@ return {
 	-- the colorscheme should be available when starting Neovim
   -- pywal, toggled via telescope (if pywal is installed)
 	{
-    "folke/tokyonight.nvim",
+    "nyoom-engineering/oxocarbon.nvim",
 		lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "tokyonight"
+      vim.cmd.colorscheme "oxocarbon"
     end
 		},
 	-- handles simple file explorer

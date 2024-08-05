@@ -39,5 +39,4 @@ map("n", "<leader>hw", "<cmd>HopWord<CR>", {desc = "hop to word"})
 map("n", "<leader>hl", "<cmd>HopLine<CR>", {desc = "hop to line"})
 
 -- toggle terminal
-map("n", "<C-BS>", "<cmd>ToggleTerm<CR>", {desc = "toggle terminal"})
-map("t", "<C-BS>", "<C-\\><C-n><cmd>ToggleTerm<CR>", { desc = "toggle terminal"})
+map("n", "<leader>t", "<cmd>ToggleTerm<CR>", {desc = "toggle terminal"})
