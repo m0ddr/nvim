@@ -13,7 +13,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ruff", "ruff-lsp", "mypy"},
+				ensure_installed = { "lua_ls", "ruff", "ruff_lsp"},
 			})
 		end,
 	},
