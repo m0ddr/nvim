@@ -17,8 +17,6 @@ return {
 					null_ls.builtins.formatting.stylua,
           -- python
           null_ls.builtins.diagnostics.mypy,
-          null_ls.builtins.formatting.black,
-          null_ls.builtins.formatting.isort,
 				},
         debug = true,
 			})
