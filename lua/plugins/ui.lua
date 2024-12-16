@@ -4,11 +4,11 @@ return {
 	-- the colorscheme should be available when starting Neovim
   -- pywal, toggled via telescope (if pywal is installed)
 	{
-    "nyoom-engineering/oxocarbon.nvim",
+    "ellisonleao/gruvbox.nvim",
 		lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "oxocarbon"
+      vim.cmd.colorscheme "gruvbox"
     end
 		},
 	-- handles simple file explorer

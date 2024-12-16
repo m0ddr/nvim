@@ -31,9 +31,6 @@ return {
       lspconfig.ruff.setup({
         capabilities = capabilities
       })
-      lspconfig.ruff_lsp.setup({
-        capabilities = capabilities
-      })
 			lspconfig.pyright.setup({
         capabilities = capabilities
 			})
