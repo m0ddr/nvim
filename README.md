@@ -17,7 +17,7 @@ I currently manage my plugins using [lazy.nvim](https://lazy.folke.io/).
 
 ### Run:
 ```shell
-git clone https://github.com/r00tkd/nvim ~/.config/nvim && nvim
+git clone https://github.com/m0ddr/nvim ~/.config/nvim && nvim
 ```
 ## Screenshot:
 ![Screenshot From 2025-04-13 22-12-39](https://github.com/user-attachments/assets/dc45ae57-48e2-4ec4-836e-4709fa138187)
