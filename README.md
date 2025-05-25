@@ -13,7 +13,7 @@ I currently manage my plugins using [lazy.nvim](https://lazy.folke.io/).
     * Make sure the nerd font you set doesn't end with Mono to prevent small icons. <br/>
       _Example : JetbrainsMono Nerd Font and not JetbrainsMono Nerd Font Mono_
 
-* Ripgrep is required for grep searching with Telescope (OPTIONAL).Nerd Font as your terminal font.
+* Ripgrep is required for grep searching with Telescope (OPTIONAL).
 
 ### Run:
 ```shell
