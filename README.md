@@ -1,23 +1,40 @@
 # Neovim Configs
+This is my personal attempt at a minimal and performance-focused Neovim setup built from scratch with sensible defaults and essential plugins for modern development. 
 
-Everything was written from scratch, and I've tried to provide helpful comments in the event I want to refactor my configurations after I learn more.
-The benefit, however, is that it does make things a little more user-friendly if someone does feel inclined to install. 
-
-Currently this is working for me, and whilst I've got tree-sitter configured to auto-install for syntax highlighting, the LSP I've installed is taliored to Python development.
 I currently manage my plugins using [lazy.nvim](https://lazy.folke.io/).
+
+## Keybindings
+
+| Key | Action |
+|-----|--------|
+| `<Space>` | Leader key |
+| `<leader>ff` | Find files |
+| `<leader>fg` | Live grep |
+| `<leader>li` | LSP hover info |
+| `<leader>lf` | Format file |
+| `<Tab>/<Shift-Tab>` | Next/previous buffer |
 
 ## Install
 
 ### Pre-requisites
+* Neovim 0.9+
+
 * Nerd Font as your terminal font.
-    * Make sure the nerd font you set doesn't end with Mono to prevent small icons. <br/>
+    * Make sure the nerd font you set doesn't end with Mono to prevent small icons. <br>
       _Example : JetbrainsMono Nerd Font and not JetbrainsMono Nerd Font Mono_
 
 * Ripgrep is required for grep searching with Telescope (OPTIONAL).
 
 ### Run:
 ```shell
-git clone https://github.com/m0ddr/nvim ~/.config/nvim && nvim
+[ -d ~/.config/nvim ] && mv ~/.config/nvim ~/.config/nvim.backup &&
+git clone https://github.com/m0ddr/nvim ~/.config/nvim
 ```
-## Screenshot:
-![Screenshot From 2025-04-13 22-12-39](https://github.com/user-attachments/assets/dc45ae57-48e2-4ec4-836e-4709fa138187)
+This will create a backup of any pre-existing nvim config
+
+## Customization
+
+- **Plugins**: Add new plugins in `lua/plugins/`
+- **Keymaps**: Modify `lua/mappings.lua`
+- **Options**: Adjust `lua/options.lua`
+- **LSP**: Configure servers in `lua/plugins/lsp-config.lua`

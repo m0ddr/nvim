@@ -1,19 +1,27 @@
-return{
-	-- Telescope fuzzy finder (requires ripgrep installed)
-	-- ref: https://github.com/nvim-telescope/telescope.nvim
-	{ "nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
-	-- Applies telescope-ui to any pop-up menus
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		config = function()
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
-					},
-				},
-			})
-			require("telescope").load_extension("ui-select")
-		end,
-	},
+return {
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    keys = {
+      { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "find files" },
+      { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "live grep" },
+      { "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "recent files" },
+      { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "help tags" },
+    },
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown({}),
+          },
+        },
+      })
+      require("telescope").load_extension("ui-select")
+    end,
+  },
 }
