@@ -1,5 +1,5 @@
 # Neovim Configs
-This is my personal attempt at a minimal and performance-focused Neovim setup built from scratch with sensible defaults and essential plugins for modern development. 
+This is my personal attempt at a minimal and performance-focused Neovim setup built from scratch with sensible defaults and essential plugins for modern development. As I'm primarily a Python dev, this configuration is primarily optimized for Python development with LSP support for pyright (type checking) and ruff (linting/formatting), plus Lua support for Neovim configuration.
 
 I currently manage my plugins using [lazy.nvim](https://lazy.folke.io/).
 

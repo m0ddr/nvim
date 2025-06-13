@@ -14,7 +14,6 @@ opt.shiftwidth = 2
 
 -- Line numbers
 opt.number = true
-opt.relativenumber = true
 
 -- Additional useful options
 opt.signcolumn = "yes"
