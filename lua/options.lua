@@ -21,7 +21,7 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 
 -- Performance improvements
-opt.updatetime = 250
+opt.updatetime = 250  -- This also controls diagnostic auto-show timing
 opt.timeoutlen = 300
 
 -- Disable unnecessary providers for faster startup
@@ -29,3 +29,35 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+-- Diagnostic configuration
+vim.diagnostic.config({
+  virtual_text = false,
+  float = {
+    source = "always",
+    header = "",
+    border = "rounded",
+    focusable = false,
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
+
+-- Auto-show diagnostic float when cursor holds on a line with diagnostics
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    local line_diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line('.') - 1 })
+    if #line_diagnostics > 0 then
+      local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end
+  end
+})

@@ -12,7 +12,8 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ruff", "pyright" },
+        -- Remove ruff from here since we're using it through none-ls
+        ensure_installed = { "lua_ls", "pyright" },
         automatic_installation = true,
       })
     end,
@@ -42,10 +43,15 @@ return {
 
       lspconfig.pyright.setup({
         capabilities = capabilities,
-      })
-
-      lspconfig.ruff.setup({
-        capabilities = capabilities,
+        settings = {
+          python = {
+            analysis = {
+              -- Let ruff handle linting, pyright focuses on type checking
+              ignore = { "*" }, -- Ignore all file-based warnings from pyright
+              typeCheckingMode = "basic",
+            },
+          },
+        },
       })
     end,
   },

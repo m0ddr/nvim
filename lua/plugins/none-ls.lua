@@ -4,22 +4,23 @@
 -- ref: https://github.com/nvimtools/none-ls.nvim
 -- extend as needed with every Mason install
 return {
-	{
-		"nvimtools/none-ls.nvim",
+  {
+    "nvimtools/none-ls.nvim",
     dependencies = {
       "nvimtools/none-ls-extras.nvim",
     },
-		config = function()
-			local null_ls = require("null-ls")
-			null_ls.setup({
-				sources = {
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
           -- lua
-					null_ls.builtins.formatting.stylua,
-          -- python
-          null_ls.builtins.diagnostics.mypy,
-				},
+          null_ls.builtins.formatting.stylua,
+          -- python - use ruff for linting and formatting through none-ls
+          require("none-ls.diagnostics.ruff"),
+          require("none-ls.formatting.ruff"),
+        },
         debug = true,
-			})
-		end,
-	},
+      })
+    end,
+  },
 }

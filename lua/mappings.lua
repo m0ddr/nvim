@@ -7,6 +7,11 @@ map("n", "<leader>ld", vim.lsp.buf.definition, {desc = "display definition"})
 map("n", "<leader>la", vim.lsp.buf.code_action, {desc = "lsp code actions"})
 map("n", "<leader>lf", vim.lsp.buf.format, {desc = "format file"})
 
+-- Diagnostic keymaps
+map("n", "<leader>q", vim.diagnostic.setloclist, {desc = "open diagnostic quickfix list"})
+map("n", "[d", vim.diagnostic.goto_prev, {desc = "go to previous diagnostic"})
+map("n", "]d", vim.diagnostic.goto_next, {desc = "go to next diagnostic"})
+
 -- more convenient window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
