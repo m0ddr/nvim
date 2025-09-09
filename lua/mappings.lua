@@ -29,6 +29,14 @@ map("n", "<leader>lf", function()
   vim.lsp.buf.format({ async = true })
 end, { desc = "format file" })
 
+-- Git keymaps (add this section to your mappings.lua)
+map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", {desc = "toggle git blame"})
+map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", {desc = "preview git hunk"})
+map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", {desc = "reset git hunk"})
+map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", {desc = "stage git hunk"})
+map("n", "]c", "<cmd>Gitsigns next_hunk<CR>", {desc = "next git hunk"})
+map("n", "[c", "<cmd>Gitsigns prev_hunk<CR>", {desc = "previous git hunk"})
+
 -- telescope mappings
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", {desc = "telescope find files"})
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", {desc = "telescope live grep"})
