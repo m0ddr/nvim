@@ -8,11 +8,23 @@ I currently manage my plugins using [lazy.nvim](https://lazy.folke.io/).
 | Key | Action |
 |-----|--------|
 | `<Space>` | Leader key |
+| `<leader>li` | LSP hover info |
+| `<leader>ld` | Go to definition |
+| `<leader>la` | Code actions |
+| `<leader>lf` | Format file |
 | `<leader>ff` | Find files |
 | `<leader>fg` | Live grep |
-| `<leader>li` | LSP hover info |
-| `<leader>lf` | Format file |
-| `<Tab>/<Shift-Tab>` | Next/previous buffer |
+| `<leader>fr` | Recent files |
+| `<leader>fh` | Help tags |
+| `<leader>gb` | Toggle git blame |
+| `<leader>gp` | Preview git hunk |
+| `<leader>gs` | Stage git hunk |
+| `]c` / `[c` | Next/previous git hunk |
+| `<Tab>` / `<Shift-Tab>` | Next/previous buffer |
+| `<leader>x` | Delete buffer |
+| `<leader>n` | New buffer |
+| `]d` / `[d` | Next/previous diagnostic |
+| `<leader>q` | Open diagnostic quickfix |
 
 ## Install
 
