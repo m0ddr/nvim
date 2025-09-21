@@ -12,47 +12,35 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        -- Remove ruff from here since we're using it through none-ls
         ensure_installed = { "lua_ls", "pyright" },
         automatic_installation = true,
       })
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "williamboman/mason-lspconfig.nvim"
-    },
-    config = function()
+      
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-
-      -- Setup individual LSP servers
-      lspconfig.lua_ls.setup({
+      
+      vim.lsp.config.lua_ls = {
         capabilities = capabilities,
         settings = {
           Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
+            diagnostics = { globals = { "vim" } },
           },
         },
-      })
+      }
 
-      lspconfig.pyright.setup({
+      vim.lsp.config.pyright = {
         capabilities = capabilities,
         settings = {
           python = {
             analysis = {
-              -- Let ruff handle linting, pyright focuses on type checking
-              ignore = { "*" }, -- Ignore all file-based warnings from pyright
+              ignore = { "*" },
               typeCheckingMode = "basic",
             },
           },
         },
-      })
+      }
+
+      vim.lsp.enable('lua_ls')
+      vim.lsp.enable('pyright')
     end,
   },
 }

@@ -9,8 +9,8 @@ map("n", "<leader>lf", vim.lsp.buf.format, {desc = "format file"})
 
 -- Diagnostic keymaps
 map("n", "<leader>q", vim.diagnostic.setloclist, {desc = "open diagnostic quickfix list"})
-map("n", "[d", vim.diagnostic.goto_prev, {desc = "go to previous diagnostic"})
-map("n", "]d", vim.diagnostic.goto_next, {desc = "go to next diagnostic"})
+map("n", "[d", function() vim.diagnostic.jump({count = -1}) end, {desc = "go to previous diagnostic"})
+map("n", "]d", function() vim.diagnostic.jump({count = 1}) end, {desc = "go to next diagnostic"})
 
 -- more convenient window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
