@@ -14,7 +14,7 @@ I currently manage my plugins using [lazy.nvim](https://lazy.folke.io/).
 | `<leader>lf` | Format file |
 | `<leader>ff` | Find files |
 | `<leader>fg` | Live grep |
-| `<leader>fr` | Recent files |
+| `<leader>fo` | Recent files/Oldfiles |
 | `<leader>fh` | Help tags |
 | `<leader>gb` | Toggle git blame |
 | `<leader>gp` | Preview git hunk |
