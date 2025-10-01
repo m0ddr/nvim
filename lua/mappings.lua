@@ -40,5 +40,5 @@ map("n", "[c", "<cmd>Gitsigns prev_hunk<CR>", {desc = "previous git hunk"})
 -- telescope mappings
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", {desc = "telescope find files"})
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", {desc = "telescope live grep"})
-map("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", {desc = "telescope recent files"})
+map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", {desc = "telescope recent files"})
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", {desc = "telescope help_tags"})
