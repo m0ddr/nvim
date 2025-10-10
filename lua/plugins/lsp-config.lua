@@ -29,13 +29,31 @@ return {
 
       vim.lsp.config.pyright = {
         capabilities = capabilities,
+        filetypes = { "python" },
+        root_markers = {
+          "pyproject.toml",
+          "setup.py",
+          "setup.cfg",
+          "requirements.txt",
+          "Pipfile",
+          "pyrightconfig.json",
+          ".git",
+          "uv.lock",
+          "poetry.lock"
+        },
         settings = {
           python = {
             analysis = {
-              ignore = { "*" },
-              typeCheckingMode = "basic",
+              typeCheckingMode = "off",
+              diagnosticMode = "off",
+              autoImportCompletions = true,
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
             },
           },
+        },
+        handlers = {
+          ["textDocument/publishDiagnostics"] = function() end,
         },
       }
 

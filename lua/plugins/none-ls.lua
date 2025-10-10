@@ -17,7 +17,7 @@ return {
           null_ls.builtins.formatting.stylua,
           -- python - use ruff for linting and formatting through none-ls
           require("none-ls.diagnostics.ruff"),
-          require("none-ls.formatting.ruff"),
+          require("none-ls.formatting.ruff_format"),
         },
         debug = true,
       })
