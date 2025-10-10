@@ -3,7 +3,7 @@ local map = vim.keymap.set
 
 -- LSP keymaps
 map("n", "<leader>li", vim.lsp.buf.hover, {desc = "display hover information"})
-map("n", "<leader>ld", vim.lsp.buf.definition, {desc = "display definition"})
+map("n", "gd", vim.lsp.buf.definition, {desc = "jump to definition"})
 map("n", "<leader>la", vim.lsp.buf.code_action, {desc = "lsp code actions"})
 map("n", "<leader>lf", vim.lsp.buf.format, {desc = "format file"})
 
@@ -24,12 +24,7 @@ map("n", "<S-tab>", "<cmd>bprev<CR>", { desc = "buffer goto prev" })
 map("n", "<leader>x", "<cmd>bdelete<CR>", {desc = "delete buffer"})
 map("n", "<leader>n", "<cmd>tabnew<CR>", {desc = "new buffer"})
 
--- format files
-map("n", "<leader>lf", function()
-  vim.lsp.buf.format({ async = true })
-end, { desc = "format file" })
-
--- Git keymaps (add this section to your mappings.lua)
+-- Git keymaps
 map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", {desc = "toggle git blame"})
 map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", {desc = "preview git hunk"})
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", {desc = "reset git hunk"})
@@ -37,8 +32,10 @@ map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", {desc = "stage git hunk"}
 map("n", "]c", "<cmd>Gitsigns next_hunk<CR>", {desc = "next git hunk"})
 map("n", "[c", "<cmd>Gitsigns prev_hunk<CR>", {desc = "previous git hunk"})
 
--- telescope mappings
+-- Telescope mappings
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", {desc = "telescope find files"})
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", {desc = "telescope live grep"})
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", {desc = "telescope recent files"})
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", {desc = "telescope help_tags"})
+map("n", "<leader>fe", "<cmd>Telescope file_browser<CR>", {desc = "telescope file browser"})
+map("n", "<leader>fb", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", {desc = "telescope file browser current buffer"})

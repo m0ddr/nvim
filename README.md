@@ -9,22 +9,25 @@ I currently manage my plugins using [lazy.nvim](https://lazy.folke.io/).
 |-----|--------|
 | `<Space>` | Leader key |
 | `<leader>li` | LSP hover info |
-| `<leader>ld` | Go to definition |
+| `gd` | Go to definition |
 | `<leader>la` | Code actions |
 | `<leader>lf` | Format file |
-| `<leader>ff` | Find files |
-| `<leader>fg` | Live grep |
-| `<leader>fo` | Recent files/Oldfiles |
-| `<leader>fh` | Help tags |
-| `<leader>gb` | Toggle git blame |
-| `<leader>gp` | Preview git hunk |
-| `<leader>gs` | Stage git hunk |
-| `]c` / `[c` | Next/previous git hunk |
 | `<Tab>` / `<Shift-Tab>` | Next/previous buffer |
 | `<leader>x` | Delete buffer |
 | `<leader>n` | New buffer |
 | `]d` / `[d` | Next/previous diagnostic |
 | `<leader>q` | Open diagnostic quickfix |
+| `<leader>gb` | Toggle git blame |
+| `<leader>gp` | Preview git hunk |
+| `<leader>gr` | Reset git hunk |
+| `<leader>gs` | Stage git hunk |
+| `]c` / `[c` | Next/previous git hunk |
+| `<leader>ff` | Find files |
+| `<leader>fg` | Live grep |
+| `<leader>fo` | Recent files/Oldfiles |
+| `<leader>fh` | Help tags |
+| `<leader>fe` | File browser |
+| `<leader>fb` | File browser (current buffer dir) |
 
 ## Install
 
