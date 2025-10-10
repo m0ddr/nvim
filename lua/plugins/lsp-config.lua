@@ -18,16 +18,16 @@ return {
       
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       
-      vim.lsp.config.lua_ls = {
+      vim.lsp.config('lua_ls', {
         capabilities = capabilities,
         settings = {
           Lua = {
             diagnostics = { globals = { "vim" } },
           },
         },
-      }
+      })
 
-      vim.lsp.config.pyright = {
+      vim.lsp.config('pyright', {
         capabilities = capabilities,
         filetypes = { "python" },
         root_markers = {
@@ -55,7 +55,7 @@ return {
         handlers = {
           ["textDocument/publishDiagnostics"] = function() end,
         },
-      }
+      })
 
       vim.lsp.enable('lua_ls')
       vim.lsp.enable('pyright')
