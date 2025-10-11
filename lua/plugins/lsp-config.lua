@@ -1,5 +1,5 @@
 local function on_attach(client, bufnr)
-  if client.supports_method("textDocument/inlayHint") then
+  if client.server_capabilities.inlayHintProvider then
     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
   end
 end
