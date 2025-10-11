@@ -15,6 +15,12 @@ return {
             theme = "ivy",
             hijack_netrw = true,
           },
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown({
+              width = 0.5,
+              height = 0.4,
+            }),
+          },
         },
       })
     end,
@@ -28,15 +34,8 @@ return {
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
-    event = "VeryLazy",
+    dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
-      require("telescope").setup({
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
-          },
-        },
-      })
       require("telescope").load_extension("ui-select")
     end,
   },

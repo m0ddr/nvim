@@ -1,11 +1,15 @@
 -- Simple mapping file
 local map = vim.keymap.set
 
--- LSP keymaps
-map("n", "<leader>li", vim.lsp.buf.hover, {desc = "display hover information"})
-map("n", "gd", vim.lsp.buf.definition, {desc = "jump to definition"})
-map("n", "<leader>la", vim.lsp.buf.code_action, {desc = "lsp code actions"})
-map("n", "<leader>lf", vim.lsp.buf.format, {desc = "format file"})
+-- LSP keymaps (buffer-local, set when LSP attaches)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local opts = { buffer = args.buf, silent = true }
+    map("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, {desc = "jump to definition"}))
+    map("n", "<leader>la", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, {desc = "lsp code actions"}))
+    map("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, vim.tbl_extend("force", opts, {desc = "format file"}))
+  end,
+})
 
 -- Diagnostic keymaps
 map("n", "<leader>q", vim.diagnostic.setloclist, {desc = "open diagnostic quickfix list"})
