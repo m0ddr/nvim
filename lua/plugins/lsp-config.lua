@@ -72,6 +72,18 @@ return {
               autoImportCompletions = true,
               autoSearchPaths = true,
               useLibraryCodeForTypes = true,
+              diagnosticSeverityOverrides = {
+                -- Downgrade noisy types to warnings
+                reportOptionalMemberAccess = "warning",
+                reportOptionalOperand = "warning",
+                reportOptionalSubscript = "warning",
+                -- Disable pedantic types
+                reportUnknownMemberType = "none",
+                reportUnknownParameterType = "none",
+                reportUnknownVariableType = "none",
+                reportUnknownArgumentType = "none",
+                reportMissingTypeStubs = "none",
+              },
             },
           },
         },
