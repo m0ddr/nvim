@@ -5,11 +5,12 @@ return{
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			local configs = require("nvim-treesitter.configs")
-			-- additional languages can be installed via :TSIntall <language>
 			configs.setup({
-				auto_install = true, -- automatically install parser for new languages
+				ensure_installed = { "lua", "python", "vim", "vimdoc", "rust" },
+				auto_install = false,
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
