@@ -21,7 +21,7 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 
 -- Performance improvements
-opt.updatetime = 250  -- This also controls diagnostic auto-show timing
+opt.updatetime = 500
 opt.timeoutlen = 300
 
 -- Disable unnecessary providers for faster startup
