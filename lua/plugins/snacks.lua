@@ -7,6 +7,7 @@ return {
       notifier = { enabled = true },
       bigfile = { enabled = true },
       quickfile = { enabled = true },
+      lazygit = { enabled = true },
     },
   },
 }

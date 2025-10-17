@@ -29,6 +29,7 @@ map("n", "<leader>x", "<cmd>bdelete<CR>", {desc = "delete buffer"})
 map("n", "<leader>n", "<cmd>tabnew<CR>", {desc = "new buffer"})
 
 -- Git keymaps
+map("n", "gg", function() require("snacks").lazygit() end, {desc = "open lazygit"})
 map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", {desc = "toggle git blame"})
 map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", {desc = "preview git hunk"})
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", {desc = "reset git hunk"})
