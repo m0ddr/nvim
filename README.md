@@ -8,8 +8,10 @@ I currently manage my plugins using [lazy.nvim](https://lazy.folke.io/).
 | Key | Action |
 |-----|--------|
 | `<Space>` | Leader key |
-| `<leader>li` | LSP hover info |
 | `gd` | Go to definition |
+| `gcc` | Toggle comment line |
+| `gc` + motion | Toggle comment |
+| `gc` (visual) | Toggle comment on selection |
 | `<leader>la` | Code actions |
 | `<leader>lf` | Format file |
 | `<Tab>` / `<Shift-Tab>` | Next/previous buffer |
