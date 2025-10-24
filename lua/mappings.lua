@@ -11,6 +11,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- Dooing (to-do) keymaps
+map("n", "<leader>td", "<cmd>Dooing<CR>", { desc = "open global todos" })
+map("n", "<leader>tD", "<cmd>DooingLocal<CR>", { desc = "open project todos" })
+
 -- Diagnostic keymaps
 map("n", "<leader>q", vim.diagnostic.setloclist, {desc = "open diagnostic quickfix list"})
 map("n", "[d", function() vim.diagnostic.jump({count = -1}) end, {desc = "go to previous diagnostic"})
