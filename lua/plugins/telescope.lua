@@ -9,6 +9,11 @@ return {
           prompt_prefix = " ",
           selection_caret = " ",
           path_display = { "truncate" },
+          layout_config = {
+            width = 0.95,
+            height = 0.95,
+            preview_width = 0.6,
+          },
         },
         extensions = {
           file_browser = {
