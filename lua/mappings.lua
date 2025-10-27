@@ -58,3 +58,5 @@ map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", {desc = "telescope recent 
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", {desc = "telescope help_tags"})
 map("n", "<leader>fe", "<cmd>Telescope file_browser<CR>", {desc = "telescope file browser"})
 map("n", "<leader>fb", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", {desc = "telescope file browser current buffer"})
+map("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", {desc = "telescope lsp references"})
+map("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", {desc = "telescope diagnostics"})
