@@ -11,10 +11,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- Dooing (to-do) keymaps
-map("n", "<leader>td", "<cmd>Dooing<CR>", { desc = "open global todos" })
-map("n", "<leader>tD", "<cmd>DooingLocal<CR>", { desc = "open project todos" })
-
 -- Diagnostic keymaps
 map("n", "<leader>q", vim.diagnostic.setloclist, {desc = "open diagnostic quickfix list"})
 map("n", "[d", function() vim.diagnostic.jump({count = -1}) end, {desc = "go to previous diagnostic"})
@@ -26,16 +22,6 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
--- Comment plugin
-map("n", "gcc", function()
-  return vim.v.count == 0
-    and "<Plug>(comment_toggle_linewise_current)"
-    or "<Plug>(comment_toggle_linewise_count)"
-end, { expr = true, desc = "toggle comment line" })
--- Annoyingly inconsistent but comment.nvim still uses the older plug pattern
-map("n", "gc", "<Plug>(comment_toggle_linewise)", { desc = "toggle comment linewise" })
-map("x", "gc", "<Plug>(comment_toggle_linewise_visual)", { desc = "toggle comment linewise (visual)" })
-
 -- Buffer commands
 map("n", "<tab>", "<cmd>bnext<CR>", { desc = "buffer goto next" })
 map("n", "<S-tab>", "<cmd>bprev<CR>", { desc = "buffer goto prev" })
@@ -43,7 +29,7 @@ map("n", "<leader>x", "<cmd>bdelete<CR>", {desc = "delete buffer"})
 map("n", "<leader>n", "<cmd>tabnew<CR>", {desc = "new buffer"})
 
 -- Git keymaps
-map("n", "<leader>gg", function() require("snacks").lazygit() end, {desc = "open lazygit"})
+map("n", "<leader>gg", "<cmd>LazyGit<CR>", {desc = "open lazygit"})
 map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", {desc = "toggle git blame"})
 map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", {desc = "preview git hunk"})
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", {desc = "reset git hunk"})
