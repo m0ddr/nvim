@@ -1,31 +1,34 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
+    "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require('kanagawa').setup({
-        compile = false,
+      require("gruvbox").setup({
+        terminal_colors = true,
         undercurl = true,
-        commentStyle = { italic = true },
-        functionStyle = {},
-        keywordStyle = { italic = true},
-        statementStyle = { bold = true },
-        typeStyle = {},
-        transparent = false,
-        dimInactive = false,
-        terminalColors = true,
-        colors = {
-          palette = {},
-          theme = { wave = {}, lotus = {}, dragon = {}, all = {} }
+        underline = true,
+        bold = true,
+        italic = {
+          strings = true,
+          emphasis = true,
+          comments = true,
+          operators = false,
+          folds = true,
         },
-        theme = "wave",
-        background = {
-          dark = "wave",
-          light = "lotus"
-        },
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        invert_intend_guides = false,
+        inverse = true,
+        contrast = "", -- can be "hard", "soft" or empty string
+        palette_overrides = {},
+        overrides = {},
+        dim_inactive = false,
+        transparent_mode = false,
       })
-      vim.cmd.colorscheme("kanagawa")
+      vim.cmd.colorscheme("gruvbox")
     end,
   },
 }
