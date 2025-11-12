@@ -101,7 +101,9 @@ return {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
-          args = {},
+          args = {
+            lineLength = 100,
+          },
         },
       })
 
