@@ -20,6 +20,10 @@ opt.signcolumn = "yes"
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 
+-- Spell checking
+opt.spell = true
+opt.spelllang = "en_gb"
+
 -- Performance improvements
 opt.updatetime = 500
 opt.timeoutlen = 300

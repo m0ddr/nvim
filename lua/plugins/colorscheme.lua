@@ -1,10 +1,10 @@
 return {
   {
-    "EdenEast/nightfox.nvim",
+    "projekt0n/github-nvim-theme",
     lazy = false,
     priority = 1000,
     config = function()
-      require('nightfox').setup({
+      require('github-theme').setup({
         options = {
           transparent = false,
           styles = {
@@ -13,7 +13,7 @@ return {
         },
       })
 
-      vim.cmd.colorscheme("terafox")
+      vim.cmd.colorscheme("github_dark_high_contrast")
     end,
   },
 }
