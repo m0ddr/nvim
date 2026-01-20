@@ -1,10 +1,10 @@
 return {
   {
-    "projekt0n/github-nvim-theme",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require('github-theme').setup({
+      require('tokyonight').setup({
         options = {
           transparent = false,
           styles = {
@@ -13,7 +13,7 @@ return {
         },
       })
 
-      vim.cmd.colorscheme("github_dark_high_contrast")
+      vim.cmd.colorscheme("tokyonight-night")
     end,
   },
 }
