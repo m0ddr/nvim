@@ -29,8 +29,9 @@ return {
     dependencies = { "williamboman/mason.nvim", "hrsh7th/cmp-nvim-lsp" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "ruff" },
-        automatic_installation = true,
+        ensure_installed = { "lua_ls", "pyright" },
+        -- ruff managed system-wide (~/.local/bin/ruff), exclude from Mason
+        automatic_installation = { exclude = { "ruff" } },
       })
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
