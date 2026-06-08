@@ -1,9 +1,8 @@
 return {
-  "vague-theme/vague.nvim",
+  "WTFox/jellybeans.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    require("vague").setup()
-    vim.cmd.colorscheme("vague")
+    vim.cmd.colorscheme("jellybeans")
   end,
 }
