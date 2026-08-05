@@ -30,8 +30,6 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls", "pyright" },
-        -- ruff managed system-wide (~/.local/bin/ruff), exclude from Mason
-        automatic_installation = { exclude = { "ruff" } },
       })
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -66,12 +64,11 @@ return {
         root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml", ".git" },
         capabilities = capabilities,
         init_options = {
-          configuration = vim.fn.expand("~/.config/nvim/lspsettings/ruff.toml"),
+          settings = {
+            configuration = vim.fn.stdpath("config") .. "/lua/lspsettings/ruff.toml",
+          },
         },
       })
-
-      -- Enable the servers (replaces manual FileType autocmds)
-      vim.lsp.enable({ "lua_ls", "pyright", "ruff" })
     end,
   },
 }
