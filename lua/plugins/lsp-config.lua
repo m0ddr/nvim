@@ -45,17 +45,7 @@ return {
         filetypes = { "lua" },
         root_markers = { ".luarc.json", ".luarc.jsonc", ".git" },
         capabilities = capabilities,
-        settings = {
-          Lua = {
-            runtime = { version = "LuaJIT" },
-            diagnostics = { globals = { "vim" } },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-              checkThirdParty = false,
-            },
-            telemetry = { enable = false },
-          },
-        },
+        settings = require("lspsettings.lua_ls"),
       })
 
       vim.lsp.config("pyright", {
@@ -65,36 +55,18 @@ return {
         capabilities = capabilities,
         settings = {
           python = {
-            analysis = {
-              typeCheckingMode = "basic",
-              autoImportCompletions = true,
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
-              diagnosticSeverityOverrides = {
-                reportOptionalMemberAccess = "warning",
-                reportOptionalOperand = "warning",
-                reportOptionalSubscript = "warning",
-                reportUnknownMemberType = "none",
-                reportUnknownParameterType = "none",
-                reportUnknownVariableType = "none",
-                reportUnknownArgumentType = "none",
-                reportMissingTypeStubs = "none",
-              },
-            },
+            analysis = require("lspsettings.pyright"),
           },
         },
       })
 
       vim.lsp.config("ruff", {
-        cmd = { "ruff", "server", "--preview" },
+        cmd = { "ruff", "server" },
         filetypes = { "python" },
-        root_markers = { "pyproject.toml", "ruff.toml", ".git" },
+        root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml", ".git" },
         capabilities = capabilities,
         init_options = {
-          settings = {
-            organizeImports = true,
-            fixAll = true,
-          },
+          configuration = vim.fn.expand("~/.config/nvim/lspsettings/ruff.toml"),
         },
       })
 
