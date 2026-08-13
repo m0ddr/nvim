@@ -1,7 +1,11 @@
 # Neovim Configs
-This is my personal attempt at a minimal and performance-focused Neovim setup built from scratch with sensible defaults and essential plugins for modern development. As I'm primarily a Python dev, this configuration is optimized for Python development with LSP support for pyright and ruff. Lua and Rust are also installed without LSP support as I also dabble with these languages on occassion.
+This is my personal attempt at a minimal and performance-focused Neovim setup built from scratch with sensible defaults and essential plugins for modern development. As I'm primarily a Python dev, this configuration is optimized for Python development with LSP support for pyright and ruff. Lua and Rust are also installed without LSP support as I also dabble with these languages on occasion.
+
+**Update**: My linters for Python are currently configured to be strict. 
+In an effort to produce higher quality and self-documenting code, I'm using Google's docstring conventions and have enabled stricter rules. On legacy codebases, this can produce a lot noise. Additionally, I've found that when working with particular libraries such as Django, `django-stubs` becomes a required dev dependency if you want to cull the vast amount of type errors and warnings. 
 
 I currently manage my plugins using [lazy.nvim](https://lazy.folke.io/).
+
 
 ## Install
 
