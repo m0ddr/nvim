@@ -7,6 +7,14 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
   },
+  -- ui-select only overrides vim.ui.select once telescope loads, so defer the
+  -- load to the first select call rather than waiting on a :Telescope command
+  init = function()
+    vim.ui.select = function(...)
+      require("lazy").load({ plugins = { "telescope.nvim" } })
+      return vim.ui.select(...)
+    end
+  end,
   config = function()
     local telescope = require("telescope")
     telescope.setup({
