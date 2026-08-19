@@ -1,3 +1,24 @@
+local function pyproject_has_ruff_section(path)
+  if vim.fn.filereadable(path) ~= 1 then return false end
+
+  for _, line in ipairs(vim.fn.readfile(path)) do
+    if line:match("^%s*%[tool%.ruff") then return true end
+  end
+
+  return false
+end
+
+local function has_local_ruff_config(root)
+  if not root then return false end
+
+  local standalone = vim.fs.find(
+    { "ruff.toml", ".ruff.toml" },
+    { path = root, upward = true, stop = vim.fs.dirname(root) }
+  )
+
+  return #standalone > 0 or pyproject_has_ruff_section(root .. "/pyproject.toml")
+end
+
 local function setup_lsp_attach()
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
@@ -63,11 +84,24 @@ return {
         filetypes = { "python" },
         root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml", ".git" },
         capabilities = capabilities,
-        init_options = {
-          settings = {
-            configuration = vim.fn.stdpath("config") .. "/lua/lspsettings/ruff.toml",
-          },
-        },
+        before_init = function(_, config)
+          local root = config.root_dir
+          local has_local_config = has_local_ruff_config(root)
+
+          if not has_local_config then
+            config.init_options = {
+              settings = {
+                configuration = vim.fn.stdpath("config") .. "/lua/lspsettings/ruff.toml",
+              },
+            }
+          end
+
+          vim.notify(
+            has_local_config and "local discovery configuration" or "using global configuration",
+            vim.log.levels.INFO,
+            { title = "Ruff" }
+          )
+        end,
       })
     end,
   },
