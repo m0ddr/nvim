@@ -8,15 +8,19 @@ local function pyproject_has_ruff_section(path)
   return false
 end
 
-local function has_local_ruff_config(root)
-  if not root then return false end
+-- Returns the filename of the local ruff config found in `root`, or nil if none exists.
+local function find_local_ruff_config(root)
+  if not root then return nil end
 
   local standalone = vim.fs.find(
     { "ruff.toml", ".ruff.toml" },
     { path = root, upward = true, stop = vim.fs.dirname(root) }
   )
+  if #standalone > 0 then return vim.fs.basename(standalone[1]) end
 
-  return #standalone > 0 or pyproject_has_ruff_section(root .. "/pyproject.toml")
+  if pyproject_has_ruff_section(root .. "/pyproject.toml") then return "pyproject.toml" end
+
+  return nil
 end
 
 local function setup_lsp_attach()
@@ -86,9 +90,9 @@ return {
         capabilities = capabilities,
         before_init = function(_, config)
           local root = config.root_dir
-          local has_local_config = has_local_ruff_config(root)
+          local local_config = find_local_ruff_config(root)
 
-          if not has_local_config then
+          if not local_config then
             config.init_options = {
               settings = {
                 configuration = vim.fn.stdpath("config") .. "/lua/lspsettings/ruff.toml",
@@ -97,7 +101,8 @@ return {
           end
 
           vim.notify(
-            has_local_config and "local discovery configuration" or "using global configuration",
+            local_config and ("local discovery configuration (" .. local_config .. ")")
+              or "using global configuration",
             vim.log.levels.INFO,
             { title = "Ruff" }
           )
